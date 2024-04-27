@@ -1,0 +1,62 @@
+【目标：将输入的秒数转化为几天几小时几分钟几秒】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TEST0
+{
+   
+}
+    internal class Program
+    {
+        static void Main(string[] args)
+        {        
+        Console.WriteLine("请输入所要换算的秒数");   
+        int num=int.Parse(Console.ReadLine());    //将输入的string类型数字转换为int类型
+
+        int days, hours, minutes, seconds;
+
+        days = num / 86400;
+        hours = (num % 86400)/3600;
+        minutes = (num % 3600)/60;
+        seconds = num % 60;
+
+        Console.WriteLine("您输入的秒数等于：{0}天{1}小时{2}分{3}秒", days, hours, minutes, seconds);
+        }
+    }
+
+【目标：计算所输入数字各个位数之和】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TEST1
+{
+   
+}
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+        Console.WriteLine("请输入所要分析的数字");   
+        string num0=Console.ReadLine();
+        int count = num0.Length;    //计算数字的长度（位数）
+        int num=int.Parse(num0);
+        int sum=0;
+
+        int[] arr = new int[count];  //建立一维数组用于储存各个位数的数字
+        for (int i = 0; i < count; i++)
+        {
+            arr[i] = (num / (int)Math.Pow(10, i))%10;   //从个位数开始，依次计算各个位数的数字
+            sum += arr[i];  //累加出各个位数的数字之和
+        }
+
+        Console.WriteLine("您输入的数字共{0}位数,它们各个位数之和是：{1}", count, sum);
+        }
+    }
