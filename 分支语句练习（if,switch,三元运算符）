@@ -1,0 +1,106 @@
+【Switch语句的简单运用】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TEST3
+{
+   
+}
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+        Console.WriteLine("请输入月份数，我们将告诉你该月的总天数（非润年）");   
+        int month=int.Parse(Console.ReadLine());
+
+        switch(month)
+        {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12: Console.WriteLine("本月总共有：{0}天", 31); break; 
+            case 4: 
+            case 6:
+            case 9:
+            case 11: Console.WriteLine("本月总共有：{0}天", 30); break;
+            case 2: Console.WriteLine("本月总共有：{0}天", 28); break;
+            default: Console.WriteLine("您输入的月份不正确！");break;
+        }          
+        }
+    }
+
+【三元运算符简单例子】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TEST4
+{
+   
+}
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+        Console.WriteLine("请输入0-100分的成绩，我们将判断该成绩是否及格");   
+        int score=int.Parse(Console.ReadLine());
+
+        Console.WriteLine("您输入的成绩：{0}", score >= 60 ? "及格" : "不及格");
+        }
+    }
+
+【If语句简单案例】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TEST5
+{
+   
+}
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+        Console.WriteLine("请输入您的成绩，我们将判断该成绩的相应等级");   
+        int score=int.Parse(Console.ReadLine());
+
+       if (score >= 0 && score < 60) 
+        {
+            Console.WriteLine("您输入的成绩为：不及格");
+        }
+        else if(score >= 60 && score <70 )
+        {
+            Console.WriteLine("您输入的成绩为：差");
+        }
+        else if (score >= 70 && score < 80)
+        {
+            Console.WriteLine("您输入的成绩为：中");
+        }
+        else if (score >= 80 && score < 90)
+        {
+            Console.WriteLine("您输入的成绩为：良");
+        }
+        else if (score >= 90 && score <= 100)
+        {
+            Console.WriteLine("您输入的成绩为：优");
+        }
+        else 
+        {
+            Console.WriteLine("请输入正确的成绩");
+        }
+        }
+    }
