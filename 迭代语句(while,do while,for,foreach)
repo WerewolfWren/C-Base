@@ -1,0 +1,206 @@
+【目标：自动输出1~100的数字】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【while语句的简单应用】
+{
+   
+}
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+          
+        int num = 1;
+        while(num<=100)    //先判断条件后再执行语句
+        { 
+        Console.WriteLine(num);
+            num++;
+        }
+          
+        }
+    }
+
+【目标：计算所输入的现金存入银行需要多久才能到达预期收益】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【do...while语句的简单应用】
+{
+   
+}
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+          
+        Console.WriteLine("请输入您的本金：");
+        double money = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("请输入您的预期收益：");
+        double profit = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("请输入固定年利率：");
+        double rate = double.Parse(Console.ReadLine())/100;
+
+        int year = 0;
+        do
+        {
+            year++;
+            money *= 1 + rate;         
+            
+        } while (money < profit);
+
+        Console.WriteLine("预计您需要{0}年的时间才能达到预期收益",year);
+          
+        }
+    }
+
+【目标：计算所输入的正整数的阶乘】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【for语句的简单应用】
+{
+   
+}
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+          
+        Console.WriteLine("请输入一个正整数，我们将计算它的阶乘");
+        int n = int.Parse(Console.ReadLine());    //5的阶乘5!=5x4x3x2x1=120
+        int num = 1;
+
+        for (int i = 1; i <= n; i++)
+        {
+            num *= i;
+        }
+
+        Console.WriteLine("{0}的阶乘是：{1}",n,num);
+          
+        }
+    }
+
+【目标：制作出九九乘法表】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【多个for语句的套用】
+{
+   
+}
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+          
+         for (int i = 1; i <= 9; i++)    //行数循环
+        {
+            Console.WriteLine();         //使程序打印换行
+            for(int j = 1; j <= i; j++)  //列数循环
+            {
+                Console.Write("{0}x{1}={2}  ",j,i,i*j);   //使程序打印保持一列
+            }
+        }
+          
+        }
+    }
+
+【目标：提取出所输入的英文的每个字母】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【foreach语句的遍历】
+{
+   
+}
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+          
+         Console.WriteLine("请输入一段英文，我们将提取出里面的每一个字母");
+        string centence = Console.ReadLine();
+
+        foreach (char letter in centence)   //遍历centence中的每一个char元素
+        {
+           if(char.IsWhiteSpace(letter))    //判断char元素是否为空格
+            {
+                Console.WriteLine("");
+            }
+           else
+            {
+                Console.WriteLine(letter);
+            }
+        }
+          
+        }
+    }
+
+
+【目标：将输入的字母转化为摩尔斯电码】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【Hashtable键值对查询】
+{
+   
+}
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+          
+        string Letter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //列出26个字母
+        string[] MorseCode = { ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.." };  //列出每个字母所对应的摩尔斯电码
+
+        Hashtable Letter_MorseCode=new Hashtable();
+
+        for (int i = 0; i < Letter.Length; i++)
+        {
+            Letter_MorseCode.Add(Letter[i], MorseCode[i]); //用for循环将每个字母与电码一一对应
+        }
+
+        Console.WriteLine("请输入一串字母，我们会将其转化为莫尔斯电码");
+        string word = Console.ReadLine().ToUpper();  //将输入的字母转为大写
+
+        foreach (char letter in word)
+        {
+           if(char.IsWhiteSpace(letter))
+            {
+                Console.WriteLine("");
+            }
+           else
+            {
+                Console.WriteLine(Letter_MorseCode[letter]);
+            }
+        }
+          
+        }
+    }
