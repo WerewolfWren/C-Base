@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TEST0
+namespace 除数与余数的应用
 {
    
 }
@@ -36,7 +36,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TEST1
+namespace 除数与余数的应用
 {
    
 }
