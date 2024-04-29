@@ -1,4 +1,4 @@
-【Switch语句的简单运用】
+【目标：给出所输入月份的天数】
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TEST3
+namespace Switch语句的简单运用
 {
    
 }
@@ -36,7 +36,7 @@ namespace TEST3
         }
     }
 
-【三元运算符简单例子】
+【目标：判断所输入成绩是否及格】
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -44,7 +44,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TEST4
+namespace 三元运算符简单例子
 {
    
 }
@@ -59,7 +59,7 @@ namespace TEST4
         }
     }
 
-【If语句简单案例】
+【目标：根据所输入的成绩给出相应的评级】
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -67,7 +67,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TEST5
+namespace If语句的简单案例
 {
    
 }
