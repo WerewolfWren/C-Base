@@ -110,7 +110,7 @@ namespace 【goto语句返回标记】
         error:  //创建错误标记，回答错误后立即返回标记点重新作答
         {
             a++;
-            if (a > 1) { Console.WriteLine("回答错误，请重新作答！"); }
+            if (a > 1) { Console.WriteLine("回答错误，请重新作答！"); } //只有当选择错误后才会执行该语句
         }
         char option=char.ToUpper(Convert.ToChar(Console.ReadLine()));
         
