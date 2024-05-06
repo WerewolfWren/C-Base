@@ -1,0 +1,126 @@
+【目标：查找500以内能同时被2,3,4,5,6,7整除的最小整数】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【Break语句的简单应用】
+{
+   
+}
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+        for (int i = 1; i < 500; i++)     
+        {
+            if(i%2==0&& i % 3 == 0 && i % 4 == 0 && i % 5 == 0 && i % 6 == 0 && i % 7 == 0)
+            {
+                Console.WriteLine(i);
+                break;     //一但找到该数,立即退出迭代语句  
+            }
+        }
+
+        }
+    }
+
+
+【目标：输出50以内的所有奇数】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【countinue语句的简单应用】
+{
+   
+}
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+       for (int i = 1; i < 50; i++)
+        {
+            if (i % 2 == 0)
+            {
+                continue;     //如果是偶数,则跳过后续操作,直接进入下次循环              
+            }
+            Console.WriteLine(i);
+        }
+
+        }
+    }
+
+【目标：输入3个整数，并计算它们的平均数】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【return语句在方法中的使用】
+{
+   
+}
+    internal class Program
+    {
+       static void Main(string[] args)
+        {
+         
+        int A = int.Parse(Console.ReadLine());
+        int B = int.Parse(Console.ReadLine());
+        int C = int.Parse(Console.ReadLine());
+
+        double average=Average(A, B, C);
+        Console.WriteLine("它们的平均数是："+average);
+        
+        }
+
+        static double Average(int a, int b, int c)  //建立平均值计算方法
+        {
+        return (double)(a + b + c) / 3;   //返回计算值
+        }
+    }
+
+【目标：创建一道选择题，答错后能返回题目继续作答】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【goto语句返回标记】
+{
+   
+}
+    internal class Program
+    {
+       static void Main(string[] args)
+        {
+        int a = 0;
+        Console.WriteLine("5的阶乘等于多少？\nA.20\nB.60\nC.120\nD.160");
+        error:  //创建错误标记，回答错误后立即返回标记点重新作答
+        {
+            a++;
+            if (a > 1) { Console.WriteLine("回答错误，请重新作答！"); }
+        }
+        char option=char.ToUpper(Convert.ToChar(Console.ReadLine()));
+        
+        switch (option) 
+        {
+            case 'A':
+            case 'B':
+            case 'D':goto error ;
+            case 'C':Console.WriteLine("恭喜你回答正确！");break;
+            default:goto error;
+        }       
+    }
+
