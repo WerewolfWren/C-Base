@@ -1,0 +1,179 @@
+【目标：创建1-3维的数组】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【1-3维数组的创建和简单操作】
+{
+   
+}
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+          
+         //一维数组的几种创建方法
+        int[] array0 = { 1, 2, 3 };
+        int[] array1 = new int[] { 1, 2, 3 };
+
+        //二维数组的创建（3行2列）
+        int[,] array2D = new int[3,2] { { 1, 1 }, { 2, 2 },{ 3, 3 } };
+
+        //三维数组的创建（3个二维数组）
+        int[,,] array3D = new int[3, 2, 2] { { { 11, 11 }, { 12, 12 } }, { { 21, 21 }, { 22, 22 } },{ { 31, 31 }, { 32, 32 } } };
+
+        Console.WriteLine(array3D.Length) ; //显示数组中所有元素的总数3x2x2=12个
+
+        array3D.GetUpperBound(0); //含有多少个二维数组的最大索引值
+        array3D.GetUpperBound(1); //每个二维数组中行数的最大索引值
+        array3D.GetUpperBound(2); //每个二维数组中列数的最大索引值
+
+        Array.IndexOf(array0, 3); //查找一维数组中3"第一次"出现时所在的索引值,如果不存在则为-1
+        Array.LastIndexOf(array0, 3); //查找一维数组中3"最后一次"出现时所在的索引值,如果不存在则为-1
+        Array.BinarySearch(array0, 3); //采用“二分法”查找一维数组中3"第一次"出现时所在的索引值,如果不存在则为-1
+        ((System.Collections.IList)array0).Contains(3); //采用IList接口中的Contains方法查找一维数组中是否存在3,如果有则返回Ture
+
+        Array.Sort(array0);//正序排列数组（从小到大）
+        Array.Reverse(array0);//倒序排列数组（从大到小）
+          
+        }
+    }
+
+
+【目标：创建集合】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【运用ArrayList类创建集合】
+{
+   
+}
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+        string[] name = new string[] { "JACK", "ANNA", "ROSE" };
+
+        ArrayList list = new ArrayList(); //创建一个集合
+        Console.WriteLine(list.Count); //显示集合中所有元素的总个数
+
+        list.Add(1);          //添加整数
+        list.Add(3.14);       //添加小数
+        list.Add('A');        //添加字符
+        list.Add("Word");     //添加字符串
+        list.AddRange(name);  //添加数组
+
+        foreach (object i in list)  //遍历list集合
+        {
+            Console.WriteLine(i);   
+        }
+
+        list.Remove("Word");       //移除指定元素
+        list.RemoveAt(1);          //移除索引值为1的元素
+        list.RemoveRange(2, 3);    //移除索引值从2开始的3个元素（包括索引值为2的元素）
+        list.Clear();              //清除所有元素
+
+        list.IndexOf("A");         //查找"A"第一次出现时的索引值
+        list.LastIndexOf("A");     //查找"A"最后一次出现时的索引值
+        list.BinarySearch("A");    //用二分法查找"A"第一次出现时的索引值
+        }
+    }
+
+
+【目标：创建泛型集合】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【运用List<>泛型集合】
+{
+   
+}
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+          int[] num = new int[] { 3,2,1 };
+
+        List<int> list = new List<int>() ; //创建一个泛型集合
+        Console.WriteLine(list.Count); //显示集合中所有元素的总个数
+
+        list.Add(1);          //添加整数
+        list.AddRange(num);   //添加数组
+
+        list[1] = 5;          //只能对已添加的元素重新赋值
+
+        list.Remove(1);       //移除第一次出现的指定元素
+        list.RemoveAt(0);          //移除索引值为1的元素
+        list.RemoveRange(2, 3);    //移除索引值从2开始的3个元素（包括索引值为2的元素）
+        list.Clear();              //清除所有元素
+
+        list.IndexOf(1);         //查找"A"第一次出现时的索引值
+        list.LastIndexOf(1);     //查找"A"最后一次出现时的索引值
+        list.BinarySearch(1);    //用二分法查找"A"第一次出现时的索引值
+
+        foreach (object i in list)  //遍历list集合
+        {
+            Console.WriteLine(i);   
+        }
+               
+        }
+    }
+
+
+【目标：将输入的字母转化为摩尔斯电码】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【Hashtable/Dictionary键值对查询】
+{
+   
+}
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+          
+        string Letter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //列出26个字母
+        string[] MorseCode = { ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.." };  //列出每个字母所对应的摩尔斯电码
+
+        Hashtable Letter_MorseCode=new Hashtable();//或者Dictionary<char,string> Letter_MorseCode= new Dictionary<char,string>();  （Hashtable为object类型，存在拆装箱操作，而Dictionary为泛型，当key值为整数时，效率更高）
+
+        for (int i = 0; i < Letter.Length; i++)
+        {
+            Letter_MorseCode.Add(Letter[i], MorseCode[i]); //用for循环将每个字母与电码一一对应
+        }
+
+        Console.WriteLine("请输入一串字母，我们会将其转化为莫尔斯电码");
+        string word = Console.ReadLine().ToUpper();  //将输入的字母转为大写
+
+        foreach (char letter in word)
+        {
+           if(char.IsWhiteSpace(letter))
+            {
+                Console.WriteLine("");
+            }
+           else
+            {
+                Console.WriteLine(Letter_MorseCode[letter]);
+            }
+        }
+          
+        }
+    }
+
+    
