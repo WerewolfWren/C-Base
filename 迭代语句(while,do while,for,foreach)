@@ -168,7 +168,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace 【Hashtable键值对查询】
+namespace 【Hashtable/Dictionary键值对查询】
 {
    
 }
@@ -180,7 +180,7 @@ namespace 【Hashtable键值对查询】
         string Letter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //列出26个字母
         string[] MorseCode = { ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.." };  //列出每个字母所对应的摩尔斯电码
 
-        Hashtable Letter_MorseCode=new Hashtable();
+        Hashtable Letter_MorseCode=new Hashtable();//或者Dictionary<char,string> Letter_MorseCode= new Dictionary<char,string>();  （Hashtable为object类型，存在拆装箱操作，而Dictionary为泛型，当key值为整数时，效率更高）
 
         for (int i = 0; i < Letter.Length; i++)
         {
