@@ -1,0 +1,135 @@
+【目标：建立求和以及面积大小的方法】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.AccessControl;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【Void无返回值方法,有返回值方法,方法的重载】
+{
+   
+}
+    internal class Program
+    {
+
+    static int Add(int a, int b) //求2个数和的方法,并且有返回值
+    {
+        return a + b;
+    }
+    static void Area (double r)  //1个半径参数r,求圆形的面积,无返回值
+    {
+        Console.WriteLine("圆的面积是：" + System.Math.PI * r * r);
+    }
+    static void Area(double a,double b)  //2个长宽参数,求矩形的面积
+    {
+        Console.WriteLine("矩形的面积是：" + a*b);
+    }
+    static void Area(double a, double b,double c)  //3个边长参数,求三角形的面积
+    {
+        double p = (a + b + c) / 2;
+        Console.WriteLine("三角形的面积是：" + System.Math.Sqrt(p * (p - a) * (p - b) * (p - c)));
+    }
+    
+    static void Main(string[] args)  //主程序
+        {    
+         int sum=Add(1, 2);   //方法有返回值,需要变量承接
+         Console.WriteLine(sum);
+
+         Area(2);
+         Area(1,2);
+         Area(1,1,1);
+        }      
+    }
+
+    【目标：建立参数数组,以及返回多个值的方法】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.AccessControl;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【params参数数组,ref引用参数,out输出参数】
+{
+   
+}
+    internal class Program
+    {
+      static int Sum1(int[]array)  //数组参数
+    {
+        int sum = 0;
+        for (int i = 0; i <array.Length; i++)
+        {
+            sum += array[i];
+        }
+        return sum;
+    }
+    static int Sum2(params int[]array)  //参数数组
+    {
+        int sum = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            sum += array[i];
+        }
+        return sum;
+    }
+
+    static void Exchange(ref int a, ref int b) //引用参数ref,能够将外部值通过方法直接改变
+    {
+        a = a + b;
+        b = a - b;
+        a = a - b;
+    }
+   
+    static int NumMax(out int indexNumMax,params int[] array)   //方法返回数组最大值,引用参数out返回最大元素的索引值,参数数组必须放在形参列表最后
+    {
+        int NumMax = array[0];
+        indexNumMax = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i]>NumMax)
+            {
+                NumMax = array[i];
+                indexNumMax = i;
+            }
+        }
+        return NumMax;
+        
+    }
+    static void NumMin(out int indexNumMin, params int[] array)   //方法返回数组最大值,引用参数out返回最大元素的索引值,参数数组必须放在形参列表最后
+    {
+        int NumMin = array[0];
+        indexNumMin = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] < NumMin)
+            {
+                NumMin = array[i];
+                indexNumMin = i;
+            }
+        }
+        Console.WriteLine("数组中最大值为：{0},它的索引值为：{1}", NumMin, indexNumMin);
+
+    }
+    static void Main(string[] args)
+        {
+
+        Console.WriteLine("数组和是：" + Sum1(new int[] { 1, 2, 3 }));  //需要实列化一个新数组
+        Console.WriteLine("参数数组的和是：" + Sum2(1, 2, 3));   //直接填写数组值
+
+        int a = 1, b = 2;
+        Exchange(ref a, ref b);
+        Console.WriteLine("a={0},b={1}", a, b); //a,b的值进行了交换
+
+        int indexNumMax;
+        Console.WriteLine("数组中最大值为：{0},它的索引值为：{1}",NumMax(out indexNumMax, 1, 2, 3),indexNumMax);
+           
+        }
+   
+   
+    }
+
+    
