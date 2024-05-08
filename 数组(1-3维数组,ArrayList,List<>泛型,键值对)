@@ -177,3 +177,44 @@ namespace 【Hashtable/Dictionary键值对查询】
     }
 
     
+
+【目标：将数组内的数字进行升序排列】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【冒泡排序法】
+{
+   
+}
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+          
+        int[] num = { 05, 08, 15, 20, 15, 10 }; //升序的目标数组
+
+        int temp = 0; //建立临时数据
+
+        for (int i = 0; i < num.Length-1; i++)  //比较数字大小的总轮数
+        {
+            for (int j = 0; j < num.Length-1-i; j++)  //每轮中比较数字大小的总次数
+            {
+                if (num[j] > num[j+1])
+                {
+                    temp=num[j];  //储存在临时数据里
+                    num[j] = num[j + 1];  //交换数据
+                    num[j+1] = temp;
+                }
+            }
+        }
+        foreach (int i in num) 
+        {
+            Console.WriteLine(i);   
+        }
+          
+        }
+    }
