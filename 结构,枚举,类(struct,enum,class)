@@ -1,0 +1,134 @@
+【目标：建立坐标结构】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.AccessControl;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【结构struct的简单创建】
+{
+   
+}
+public struct coordinate //在结构下定义x,y,z字段
+{
+    public int x;
+    public int y;
+    public int z;
+}
+internal class Program
+    {
+
+    static void Main(string[] args)
+        {
+        coordinate position = new coordinate(); //初始化结构
+
+        position.x= 1;  //为结构内的字段赋值
+        position.y= 2;
+        position.z = 3;           
+        }
+      
+    }
+
+
+【目标：建立空间枚举,包含x,y,z三个坐标值】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.AccessControl;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【枚举enum的简单创建】
+{
+   
+}
+public enum Space  //创建空间的枚举值
+{
+    x, y, z  //包含x,y,z三个预设值
+}
+internal class Program
+    {
+
+    static void Main(string[] args)
+        {
+
+        Space position =Space.x; 
+           
+        }
+      
+    }
+
+【目标：建立职员类,并包含字段,属性,方法】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.AccessControl;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【类的创建,以及构造函数的建立】
+{
+   
+}
+public enum Gender  //创建性别的枚举值
+{
+    man,
+    woman,
+    other
+}
+public class Clerk
+{
+    public string _name;  //建立姓名字段
+    public string Name    //使用预留属性
+    { get; set; }
+
+    public Gender _gender; //性别字段
+
+    private int _age; //建立私密字段年龄
+    public int Age
+    {
+        get   //对取值进行限定
+        { 
+            return _age;
+        }
+        set   //对赋值进行限定
+        {
+            if(value < 0||value >120)
+            {
+                value = 0;
+            }
+            _age = value;
+        }
+    }
+    public string _apartment; //创建部门字段
+
+    public void Write()  //创建信息方法
+    {
+        Console.WriteLine("姓名：{0}，性别：{1}，年龄：{2}，所属部门：{3}",this.Name,this._gender,this._age,this._apartment);
+    }
+
+    public Clerk(String name,Gender gender,int age,string apartment) //建立构造函数
+    {
+        this.Name = name;
+        this._gender = gender;
+        this.Age = age;
+        this._apartment = apartment;
+    }
+
+}
+internal class Program
+    {
+    static void Main(string[] args)
+        {
+
+        Clerk clerk001 = new Clerk("Jcke", Gender.man, 24, "创意部");
+        clerk001.Write();
+           
+        }     
+    }
+
+
