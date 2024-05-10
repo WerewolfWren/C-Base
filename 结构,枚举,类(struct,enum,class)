@@ -131,4 +131,87 @@ internal class Program
         }     
     }
 
+【目标：创建学生结构体,寻找分数最高者以及根据年龄排序】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.AccessControl;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【结构体的创建,方法的建立,找最大值,冒泡排序】
+{
+   
+}
+public  struct Student //建立学生结构体,创建相应的字段
+{
+    public string Name; 
+    public int Age;
+    public int Id;
+    public int Grade;
+
+    public Student(string name,int age,int id,int grade)  //创建构造函数
+    {
+        Name = name;
+        Age = age;
+        Id = id;
+        Grade = grade;
+    }
+    public static void GradeMax(Student[] array) //编写获取最高分数学生的方法
+    {
+        int gradeMax = array[0].Grade;
+        int index = 0;
+        for (int i = 0; i < array.Length; i++)
+        {
+            if(gradeMax < array[i].Grade)
+            {
+                gradeMax = array[i].Grade;
+                index = i;
+            }
+        }
+        Console.WriteLine("分数最高的人为：{0},他/她的成绩是：{1}", array[index].Name, gradeMax);
+    }
+
+    public static void AgeOrder(Student[] array) //编写根据年龄从小到达排序的方法
+    {
+        Student temp = new Student();
+        for (int i = 0; i <array.Length-1; i++)
+        {
+            for (int j = 0; j <array.Length-1-i; j++)
+            {
+                if (array[j].Age > array[j+1].Age)
+                {
+                    temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+        foreach (Student student in array) 
+        {
+            Console.WriteLine("我叫：{0}，今年{1}岁", student.Name, student.Age);
+        }
+        
+    }
+}
+   
+internal class Program
+    {
+
+    static void Main(string[] args)
+    {
+        Student []studentArray = new Student[5];  //创建学生数组
+        studentArray[0]= new Student("Jack", 17, 01, 85);
+        studentArray[1]= new Student("Anna", 14, 02, 96);
+        studentArray[2] = new Student("Ben", 16, 03, 79);
+        studentArray[3] = new Student("Emma", 16, 04, 72);
+        studentArray[4] = new Student("Lily", 15, 05, 66);
+            
+        Student.GradeMax(studentArray); 
+        Student.AgeOrder(studentArray);
+
+    }
+      
+    }
 
