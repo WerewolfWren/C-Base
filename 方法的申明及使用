@@ -129,7 +129,69 @@ namespace 【params参数数组,ref引用参数,out输出参数】
            
         }
    
-   
     }
 
+【目标：经典算法递归】
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.AccessControl;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace 【利用递归算法求斐波拉契数列】
+{
+   
+}
+internal class Program
+    {
+
+    public static int Fibonacci(int n) //求斐波那契数列第n个数
+    {
+        if (n < 0) return -1;
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+        return Fibonacci(n-1)+Fibonacci(n-2);
+    }
+
+【总共有N个数,每过一天减少1/2+1个数,7天后只剩下1个数,求N的值】
+    public static int Num1(int day)  //采用递归算法
+    {
+        if(day <= 0) return -1;
+        if(day == 1) return 4;
+
+        return 2 * (Num1(day - 1) + 1);
+    }
+    public static int Num2(int day)  //采用for循环计算
+    {
+        int left = 1;
+        for (int i = 0; i < day; i++)
+        {
+            left = 2 * (left + 1);
+        }
+        return left;    
+    }
+    static int sum = 1;
+    public static int Num3(int day)  //递归算法2
+    {   
+        if(day > 0)
+        {
+            sum = 2 * (sum + 1);
+            day--;
+            Num3(day);
+        }
+       return sum;    
+    }
+    static void Main(string[] args)
+    {
+
+        Console.WriteLine(Fibonacci(4));
+        Console.WriteLine( Num1(7));
+        Console.WriteLine( Num2(7) );    
+        Console.WriteLine( Num3(7) );
+
+    }
+      
+    }
     
